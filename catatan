@@ -1,0 +1,24 @@
+Untuk membuat project laravel baru :
+composer create-project laravel/laravel:^8.0 laravelecom
+
+untuk Running Project :
+php artisan serve
+
+untuk membuat login laravel :
+composer require laravel/ui
+php artisan ui:auth -> generate authentication
+authentication laravel :
+composer require laravel/sanctum
+php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
+Kemudian tambahkan code :\Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
+pada file app/http/kernel.php
+tambahkan code use Laravel\Sanctum\HasApiTokens; dan HasApiTokens, pada model User
+
+Migrasi ke Database :
+php artisan migrate
+
+Untuk Create Controller :
+php artisan make:controller API/Authentication
+
+Untuk Create middleware :
+php artisan make:middleware ApiAdminMiddleware
