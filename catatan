@@ -22,3 +22,9 @@ php artisan make:controller API/Authentication
 
 Untuk Create middleware :
 php artisan make:middleware ApiAdminMiddleware
+
+Untuk Create Table Migration :
+php artisan make:migration create_categories_table
+
+Untuk Create model :
+php artisan make:model Category
