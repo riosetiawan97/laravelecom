@@ -25,6 +25,8 @@ Route::middleware(['auth:sanctum','isAPIAdmin'])->group(function() {
         return response()->json(['messege'=>'You are in', 'status'=>200], 200);
     });
 
+    //Category
+    Route::get('view-category',[CategoryController::Class, 'index']);
     Route::post('store-category',[CategoryController::Class, 'store']);
 
 });
