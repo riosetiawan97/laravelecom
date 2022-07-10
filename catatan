@@ -18,13 +18,13 @@ Migrasi ke Database :
 php artisan migrate
 
 Untuk Create Controller :
-php artisan make:controller API/Authentication
+php artisan make:controller API/AuthenticationController
 
 Untuk Create middleware :
 php artisan make:middleware ApiAdminMiddleware
 
-Untuk Create Table Migration :
+Untuk Create Table :
 php artisan make:migration create_categories_table
 
-Untuk Create model :
+Untuk Create Model :
 php artisan make:model Category
