@@ -29,12 +29,15 @@ Route::middleware(['auth:sanctum','isAPIAdmin'])->group(function() {
     //Category
     Route::get('view-category',[CategoryController::Class, 'index']);
     Route::post('store-category',[CategoryController::Class, 'store']);
-    Route::get('edit-category/{id}',[CategoryController::Class, 'edit']);    
+    Route::get('edit-category/{id}',[CategoryController::Class, 'edit']);
     Route::put('update-category/{id}',[CategoryController::Class, 'update']);
     Route::delete('delete-category/{id}',[CategoryController::Class, 'destroy']);
     Route::get('all-category',[CategoryController::Class, 'allcategory']);
-    //Category
+    //Product
     Route::post('store-product',[ProductController::Class, 'store']);
+    Route::get('view-product',[ProductController::Class, 'index']);
+    Route::get('edit-product/{id}',[ProductController::Class, 'edit']);
+    Route::post('update-product/{id}',[ProductController::Class, 'update']);
 
 });
 
