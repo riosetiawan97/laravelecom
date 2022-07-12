@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\CategoryController;
 use App\Http\Controllers\API\ProductController;
+use App\Http\Controllers\API\FrontendController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,9 @@ use App\Http\Controllers\API\ProductController;
 
 Route::post('register',[AuthController::Class, 'register']);
 Route::post('login',[AuthController::Class, 'login']);
+
+Route::get('getCategory',[FrontendController::Class, 'category']);
+Route::get('fetchproducts/{slug}',[FrontendController::Class, 'product']);
 
 Route::middleware(['auth:sanctum','isAPIAdmin'])->group(function() {
     
