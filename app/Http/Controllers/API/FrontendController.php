@@ -24,7 +24,7 @@ class FrontendController extends Controller
         $category = Category::where('slug', $slug)->where('status','0')->first();
         if($category)
         {
-            $product = Product::where('category_id', $category->id)->where('status','0')->first();
+            $product = Product::where('category_id', $category->id)->where('status','0')->get();
             if($product)
             {
                 return response()->json([
@@ -32,7 +32,40 @@ class FrontendController extends Controller
                     'product_data'=>[
                         'product'=>$product,
                         'category'=>$category,
-                    ],
+                    ]
+                ]);
+            }
+            else
+            {
+                return response()->json([
+                    'status'=>400,
+                    'message'=>'No Product Available',
+                ]);
+            }
+        }
+        else
+        {
+            return response()->json([
+                'status'=>404,
+                'message'=>'No such Category Found',
+            ]);
+        }
+    }
+
+    public function viewproduct($category_slug, $product_slug)
+    {
+        $category = Category::where('slug', $category_slug)->where('status','0')->first();
+        if($category)
+        {
+            $product = Product::where('category_id', $category->id)
+                                ->where('slug', $product_slug)
+                                ->where('status','0')
+                                ->first();
+            if($product)
+            {
+                return response()->json([
+                    'status'=>200,
+                    'product'=>$product,
                 ]);
             }
             else
