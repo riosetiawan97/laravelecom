@@ -6,6 +6,7 @@ use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\CategoryController;
 use App\Http\Controllers\API\ProductController;
 use App\Http\Controllers\API\FrontendController;
+use App\Http\Controllers\API\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,10 @@ Route::post('login',[AuthController::Class, 'login']);
 Route::get('getCategory',[FrontendController::Class, 'category']);
 Route::get('fetchproducts/{slug}',[FrontendController::Class, 'product']);
 Route::get('viewproductdetail/{category_slug}/{product_slug}',[FrontendController::Class, 'viewproduct']);
+Route::post('add-to-cart',[CartController::Class, 'addtocart']);
+Route::get('cart',[CartController::Class, 'viewcart']);
+Route::put('cart-updatequantity/{cart_id}/{scope}',[CartController::Class, 'updatequantity']);
+Route::delete('delete-cartitem/{cart_id}',[CartController::Class, 'deleteCartitem']);
 
 Route::middleware(['auth:sanctum','isAPIAdmin'])->group(function() {
     
